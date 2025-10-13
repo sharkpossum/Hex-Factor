@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Player_Config" load_steps=2 format=3 uid="uid://c0ajcrf01ge0x"]
 
-[ext_resource type="Script" uid="uid://cvg54kx506vmq" path="res://scenes/player/playerConfig.gd" id="1_m1w7y"]
+[ext_resource type="Script" uid="uid://cvg54kx506vmq" path="res://scenes/player/Player_Config.gd" id="1_m1w7y"]
 
 [resource]
 script = ExtResource("1_m1w7y")

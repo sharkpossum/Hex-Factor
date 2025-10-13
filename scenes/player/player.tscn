@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://df4cptti61gjf"]
+[gd_scene load_steps=6 format=3 uid="uid://df4cptti61gjf"]
 
 [ext_resource type="Script" uid="uid://c6ookd8igxpbd" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Resource" uid="uid://c0ajcrf01ge0x" path="res://scenes/player/player_config.tres" id="2_dovo2"]
+[ext_resource type="Resource" uid="uid://e5kokaakjgxw" path="res://scenes/player/Player_Stats.tres" id="3_gmlin"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
@@ -13,6 +14,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_8afob")
 config = ExtResource("2_dovo2")
+stats = ExtResource("3_gmlin")
 
 [node name="Head" type="Node3D" parent="CharacterBody3D"]
 unique_name_in_owner = true
@@ -29,3 +31,5 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("ConvexPolygonShape3D_8afob")
+
+[node name="PlayerState" type="Node" parent="."]
