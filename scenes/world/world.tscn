@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://biicte2rtj84x"]
+
+[ext_resource type="PackedScene" uid="uid://bbl2c3uys5gai" path="res://scenes/world/white_halls/white_hall_floor.tscn" id="1_dphjl"]
+[ext_resource type="PackedScene" uid="uid://df4cptti61gjf" path="res://scenes/player/player.tscn" id="1_sl2e5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rhad"]
+sky_top_color = Color(0.0449246, 0.481718, 0.688232, 1)
+sky_horizon_color = Color(0.441995, 0.585084, 0.659083, 1)
+ground_bottom_color = Color(1.20327e-08, 0.135563, 0.225042, 1)
+ground_horizon_color = Color(0.441995, 0.585084, 0.659083, 1)
+energy_multiplier = 1.4
+
+[sub_resource type="Sky" id="Sky_dphjl"]
+sky_material = SubResource("ProceduralSkyMaterial_4rhad")
+
+[sub_resource type="Environment" id="Environment_sl2e5"]
+background_mode = 2
+sky = SubResource("Sky_dphjl")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sl2e5")
+
+[node name="Player" parent="." instance=ExtResource("1_sl2e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7993, 2.72609, 7.34618)
+
+[node name="World" type="Node" parent="."]
+
+[node name="WhiteHallFloor" parent="World" instance=ExtResource("1_dphjl")]
+
+[node name="WhiteHallFloor3" parent="World" instance=ExtResource("1_dphjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)

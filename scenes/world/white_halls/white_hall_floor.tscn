@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbl2c3uys5gai"]
+
+[ext_resource type="Texture2D" uid="uid://xwdtd6vd7jag" path="res://scenes/world/white_halls/texture_06.png" id="1_1n5io"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dq0m"]
+albedo_texture = ExtResource("1_1n5io")
+uv1_scale = Vector3(15, 10, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ridk"]
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1n5io"]
+points = PackedVector3Array(5.07738, 0.138095, 5.07738, -5.07738, -0.179365, -5.07738, -5.07738, 0.138095, -5.07738, 5.07738, -0.179365, -5.07738, -5.07738, -0.179365, 5.07738, -5.07738, 0.138095, 5.07738, 5.07738, 0.138095, -5.07738, 5.07738, -0.179365, 5.07738)
+
+[node name="WhiteHallFloor" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+material_override = SubResource("StandardMaterial3D_3dq0m")
+mesh = SubResource("BoxMesh_8ridk")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+shape = SubResource("ConvexPolygonShape3D_1n5io")
