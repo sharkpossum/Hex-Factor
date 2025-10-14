@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c6ookd8igxpbd" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://g3oyeat67n0i" path="res://scripts/states/State_Machine.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://b7gd5fncajrhf" path="res://scripts/Player_Stats.gd" id="4_lvxji"]
-[ext_resource type="Script" uid="uid://blm1er027g3ae" path="res://scenes/player/states/movement/Walking.gd" id="4_p47bc"]
+[ext_resource type="Script" uid="uid://dran61oreg7lp" path="res://scripts/states/Player_Movement_State.gd" id="4_p47bc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
@@ -36,9 +36,8 @@ shape = SubResource("ConvexPolygonShape3D_8afob")
 unique_name_in_owner = true
 script = ExtResource("4_lvxji")
 
-[node name="MovementStates" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="MovementStates" type="Node" parent="."]
 script = ExtResource("3_gmlin")
-initial_state = NodePath("Walking")
 
 [node name="Walking" type="Node" parent="MovementStates"]
 script = ExtResource("4_p47bc")
