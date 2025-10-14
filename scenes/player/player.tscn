@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://df4cptti61gjf"]
+[gd_scene load_steps=8 format=3 uid="uid://df4cptti61gjf"]
 
 [ext_resource type="Script" uid="uid://c6ookd8igxpbd" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://g3oyeat67n0i" path="res://scripts/states/State_Machine.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://b7gd5fncajrhf" path="res://scripts/Player_Stats.gd" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://blm1er027g3ae" path="res://scenes/player/states/movement/Walking.gd" id="4_p47bc"]
+[ext_resource type="Script" uid="uid://3uouxr0i3o4g" path="res://scenes/player/states/movement/Sprinting.gd" id="5_p47bc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
@@ -42,3 +43,7 @@ initial_state = NodePath("Walking")
 
 [node name="Walking" type="Node" parent="MovementStates"]
 script = ExtResource("4_p47bc")
+
+[node name="Sprinting" type="Node" parent="MovementStates"]
+script = ExtResource("5_p47bc")
+state_speed = 10.0

@@ -16,6 +16,10 @@ var bobTime: float = 0.0
 # Move this into a config global later.
 var MOUSE_SENSITIVITY = 0.003
 
+func Enter():
+	player_stats.SPEED = state_speed
+	pass
+
 func Move(delta):
 	if not player_body.is_on_floor():
 		player_body.velocity += player_body.get_gravity() * delta
