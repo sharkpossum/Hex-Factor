@@ -3,6 +3,8 @@ extends Player_Movement_State
 @export var SPRINT_TOGGLE: bool = true
 
 func Update(delta):
+	super.Update(delta)
+	
 	if !SPRINT_TOGGLE:
 		if Input.is_action_just_released("sprint"):
 			Transitioned.emit(self, "walking")

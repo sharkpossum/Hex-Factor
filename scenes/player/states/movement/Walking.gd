@@ -1,7 +1,10 @@
 extends Player_Movement_State
 
 func Update(delta):
+	super.Update(delta)
+	
 	if Input.is_action_just_pressed("sprint"):
 		Transitioned.emit(self, "sprinting")
-		pass
-	pass
+	
+	if Input.is_action_just_pressed("crouch"):
+		Transitioned.emit(self, "crouching")

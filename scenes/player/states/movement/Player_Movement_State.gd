@@ -2,23 +2,43 @@ extends State
 
 class_name Player_Movement_State
 
-# Head bobbing
+# State properties
 @export var state_speed = 5.0
-@export var BOB_FREQ : float = 2.0
-@export var BOB_AMP : float = 0.06
-var bobTime: float = 0.0
+@export var state_height = 0.75
+
+var height_progress := 0.0
+var height_adjust_step := 12
 
 @onready var player_body: CharacterBody3D = %PlayerBody
 @onready var player_stats = %PlayerStats
-@onready var player_head = %Head
+@onready var player_head: Node3D = %Head
 @onready var player_camera = %PlayerCamera
+
+
+var player_head_origin := Vector3.ZERO
 
 # Move this into a config global later.
 var MOUSE_SENSITIVITY = 0.003
 
 func Enter():
+	height_progress = 0.0
+	
 	player_stats.SPEED = state_speed
 	pass
+	
+func Update(delta: float):
+	handle_height_change(delta)
+	pass
+	
+func Physics_Update(delta: float):
+	Move(delta)
+	pass
+
+func handle_height_change(delta: float):
+	height_progress = lerp(player_stats.HEIGHT, state_height, delta * height_adjust_step)
+	
+	player_stats.HEIGHT = snapped(height_progress, 0.001)
+	player_head.position.y = player_stats.HEIGHT
 
 func Move(delta):
 	if not player_body.is_on_floor():
@@ -42,17 +62,8 @@ func Move(delta):
 		player_body.velocity.z = 0
 
 	player_body.move_and_slide()
-	head_bob(delta, player_body.velocity)
-	
 
-func head_bob(delta: float, velocity: Vector3):
-	bobTime += delta * player_body.velocity.length() * float(player_body.is_on_floor())
-	var bobPos = Vector3.ZERO;
-	bobPos.y = sin(bobTime * BOB_FREQ) * BOB_AMP
-	bobPos.x = sin(bobTime * BOB_FREQ / 2) * BOB_AMP
-	player_head.transform.origin = bobPos
-	pass
-
+# First Person controls
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		player_head.rotate_y(event.relative.x * -1 * MOUSE_SENSITIVITY)
@@ -61,6 +72,3 @@ func _unhandled_input(event: InputEvent) -> void:
 		pass
 	pass
 	
-func Physics_Update(delta: float):
-	Move(delta)
-	pass
