@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://df4cptti61gjf"]
+[gd_scene load_steps=15 format=3 uid="uid://df4cptti61gjf"]
 
 [ext_resource type="Script" uid="uid://c6ookd8igxpbd" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://d0gqgbr6j57ku" path="res://scenes/player/head.gd" id="2_0owmy"]
 [ext_resource type="Script" uid="uid://g3oyeat67n0i" path="res://scripts/states/State_Machine.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://b7gd5fncajrhf" path="res://scripts/Player_Stats.gd" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://blm1er027g3ae" path="res://scenes/player/states/movement/Walking.gd" id="4_p47bc"]
+[ext_resource type="Resource" uid="uid://bbv1n18l8nhma" path="res://scenes/player/states/resources/player_inventory.tres" id="5_fm80t"]
 [ext_resource type="Resource" uid="uid://c0ajcrf01ge0x" path="res://scenes/player/states/resources/player_config.tres" id="5_je7p5"]
 [ext_resource type="Script" uid="uid://3uouxr0i3o4g" path="res://scenes/player/states/movement/Sprinting.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://df6uony5jsrkw" path="res://scenes/player/states/movement/Crouching.gd" id="6_75vfm"]
@@ -24,6 +25,7 @@ radius = 0.25
 script = ExtResource("1_8afob")
 
 [node name="PlayerGUI" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +34,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PlayerGUI"]
+[node name="InventoryHBox" type="HBoxContainer" parent="PlayerGUI"]
+unique_name_in_owner = true
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
@@ -61,6 +64,7 @@ shape = SubResource("ConvexPolygonShape3D_8afob")
 unique_name_in_owner = true
 script = ExtResource("4_lvxji")
 CONFIG = ExtResource("5_je7p5")
+INVENTORY = ExtResource("5_fm80t")
 
 [node name="MovementState" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_gmlin")

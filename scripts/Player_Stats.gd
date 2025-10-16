@@ -9,3 +9,4 @@ class_name Player_Stats
 @export var CAN_LOOK: bool = true
 
 @export var CONFIG: Player_Config;
+@export var INVENTORY: Item_Inventory

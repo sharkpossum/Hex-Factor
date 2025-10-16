@@ -5,6 +5,11 @@ func Enter():
 	player_stats.CAN_MOVE = false
 	player_stats.CAN_LOOK = false
 	
+	print(player_stats.INVENTORY.get_items())
+	
+func Exit():
+	pass
+
 func Update(delta: float):
 	if Input.is_action_just_pressed("inventory"):
 		Transitioned.emit(self, "neutral")

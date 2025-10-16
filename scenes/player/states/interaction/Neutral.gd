@@ -22,14 +22,16 @@ func Update(delta: float):
 	
 	# Interacts with the closest interactible to the camera position.
 	if interactibles.size() > 0:
+		var interaction_target = interactibles[0]
+		for i in interactibles:
+			if player_camera.position.distance_to(i.position) < player_camera.position.distance_to(interaction_target.position):
+				interaction_target = i
+				
+				
 		if Input.is_action_just_pressed("interact"):
-			var interaction_target = interactibles[0]
-			for i in interactibles:
-				if player_camera.position.distance_to(i.position) < player_camera.position.distance_to(interaction_target.position):
-					interaction_target = i
 			for child in interaction_target.get_children():
 				if child is Interactible_Component:
-					child.interact()
+					child.interact_with_source(player)
 		
 func _on_interaction_area_body_entered(body: Node3D) -> void:
 	interactibles.append(body.get_parent())

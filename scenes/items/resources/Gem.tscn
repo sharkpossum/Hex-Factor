@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://boq0v0dgcd6kk"]
 
 [ext_resource type="Script" uid="uid://co7jhh45ebovi" path="res://scenes/items/Item.gd" id="1_sgbi3"]
-[ext_resource type="Script" uid="uid://d0iy1iiim5qqw" path="res://scripts/components/Interactible_Component.gd" id="2_0umgs"]
+[ext_resource type="Script" uid="uid://dc5hiugqxud7n" path="res://scripts/components/Collect_Component.gd" id="2_0umgs"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sgbi3"]
 points = PackedVector3Array(-0.221359, 0.05, -0.0414722, 0.221351, 0.05, 0.0414722, 0.214418, 0.05, 0.0691204, -0.1474, -0.05, -0.191636, -0.0441949, -0.05, 0.235874, 0.235866, -0.05, -0.0441917, 0.0691587, 0.05, -0.214425, -0.0691232, 0.05, 0.214425, -0.221098, -0.05, 0.095818, 0.147346, -0.05, 0.191636, 0.0957664, -0.05, -0.221097, -0.0898806, 0.05, -0.207491, 0.0898729, 0.05, 0.207491, 0.179836, 0.05, -0.138284, -0.179801, 0.05, 0.138327, -0.228486, -0.05, -0.073699, -0.0441949, -0.05, -0.235874, -0.1474, -0.05, 0.191636, 0.22109, -0.05, 0.095818, -0.179801, 0.05, -0.138327, 0.191629, -0.05, -0.147352, 0.179836, 0.05, 0.138284, 0.0441871, -0.05, 0.235874, -0.221359, 0.05, 0.0414722, 0.214418, 0.05, -0.0691204, -0.235874, -0.05, 0.0441917, 0.0414677, 0.05, 0.221359, 0.138278, 0.05, -0.179843, -0.0414755, 0.05, -0.221359, 0.0441871, -0.05, -0.235874, -0.191591, -0.05, -0.147398, -0.138329, 0.05, 0.179843)
@@ -29,6 +29,6 @@ shape = SubResource("ConvexPolygonShape3D_sgbi3")
 mesh = SubResource("CylinderMesh_sgbi3")
 skeleton = NodePath("../..")
 
-[node name="Interactible_Component" type="Node" parent="."]
+[node name="Collect_Component" type="Node" parent="."]
 script = ExtResource("2_0umgs")
-metadata/_custom_type_script = "uid://d0iy1iiim5qqw"
+metadata/_custom_type_script = "uid://dc5hiugqxud7n"
