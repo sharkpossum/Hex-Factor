@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://biicte2rtj84x"]
+[gd_scene load_steps=7 format=3 uid="uid://biicte2rtj84x"]
 
 [ext_resource type="PackedScene" uid="uid://bbl2c3uys5gai" path="res://scenes/world/white_halls/white_hall_floor.tscn" id="1_dphjl"]
 [ext_resource type="PackedScene" uid="uid://df4cptti61gjf" path="res://scenes/player/player.tscn" id="1_sl2e5"]
+[ext_resource type="PackedScene" uid="uid://boq0v0dgcd6kk" path="res://scenes/items/resources/Gem.tscn" id="3_1fp7r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rhad"]
 sky_top_color = Color(0.0449246, 0.481718, 0.688232, 1)
@@ -33,3 +34,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7993, 2.72609, 7.34618)
 
 [node name="WhiteHallFloor3" parent="World" instance=ExtResource("1_dphjl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Gem" parent="Items" instance=ExtResource("3_1fp7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.25328, 1.27395, -7.07284)
+
+[node name="Gem2" parent="Items" instance=ExtResource("3_1fp7r")]
+transform = Transform3D(-0.247371, 0.968921, 0, -0.968921, -0.247371, 0, 0, 0, 1, -6.64756, 1.55638, -7.07284)
+
+[node name="Gem3" parent="Items" instance=ExtResource("3_1fp7r")]
+transform = Transform3D(0.868043, -0.49649, 0.000139987, 0.49649, 0.868042, -0.000316639, 3.56761e-05, 0.00034436, 1, -7.96239, 2.14551, -7.07284)
+
+[node name="Gem4" parent="Items" instance=ExtResource("3_1fp7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.67691, 2.7364, -6.80781)
+
+[node name="Gem5" parent="Items" instance=ExtResource("3_1fp7r")]
+transform = Transform3D(0.570037, 0.54426, -0.615499, -0.370348, 0.838917, 0.398826, 0.733417, 0.000602956, 0.679779, -8.40394, 3.11936, -6.80781)

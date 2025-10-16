@@ -7,7 +7,7 @@ class_name Player_Movement_State
 @export var state_height = 0.75
 
 var height_progress := 0.0
-var height_adjust_step := 12
+var height_adjust_step := 0.0
 
 @onready var player_body: CharacterBody3D = %PlayerBody
 @onready var player_stats = %PlayerStats
@@ -17,13 +17,11 @@ var height_adjust_step := 12
 
 var player_head_origin := Vector3.ZERO
 
-# Move this into a config global later.
-var MOUSE_SENSITIVITY = 0.003
-
 func Enter():
 	height_progress = 0.0
 	
 	player_stats.SPEED = state_speed
+	height_adjust_step = player_stats.SPEED * 4
 	pass
 	
 func Update(delta: float):
@@ -54,7 +52,7 @@ func Move(delta):
 	
 	# Set direction basis to head direction.
 	var direction = (player_head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction && player_stats.CAN_MOVE:
 		player_body.velocity.x = direction.x * player_stats.SPEED
 		player_body.velocity.z = direction.z * player_stats.SPEED
 	else:
@@ -65,10 +63,10 @@ func Move(delta):
 
 # First Person controls
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		player_head.rotate_y(event.relative.x * -1 * MOUSE_SENSITIVITY)
-		player_camera.rotate_x(event.relative.y * -1 * MOUSE_SENSITIVITY)
-		player_camera.rotation.x = clamp(player_camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+	if event is InputEventMouseMotion && player_stats.CAN_LOOK:
+		player_head.rotate_y(event.relative.x * -1 * player_stats.CONFIG.MOUSE_SENSITIVITY)
+		player_camera.rotate_x(event.relative.y * -1 * player_stats.CONFIG.MOUSE_SENSITIVITY)
+		player_camera.rotation.x = clamp(player_camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 		pass
 	pass
 	
