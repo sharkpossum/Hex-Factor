@@ -1,0 +1,3 @@
+extends Player_Movement_State
+
+class_name Player_Movement_In_Menu

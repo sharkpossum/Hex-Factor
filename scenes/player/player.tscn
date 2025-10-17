@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://df4cptti61gjf"]
+[gd_scene load_steps=18 format=3 uid="uid://df4cptti61gjf"]
 
 [ext_resource type="Script" uid="uid://c6ookd8igxpbd" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://d0gqgbr6j57ku" path="res://scenes/player/head.gd" id="2_0owmy"]
@@ -11,6 +11,9 @@
 [ext_resource type="Script" uid="uid://df6uony5jsrkw" path="res://scenes/player/states/movement/Crouching.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://bwyryc1isr0m5" path="res://scenes/player/states/interaction/Neutral.gd" id="9_5gtgg"]
 [ext_resource type="Script" uid="uid://cocnkjd2dqw2i" path="res://scenes/player/states/interaction/In_Inventory.gd" id="10_h17s1"]
+[ext_resource type="Script" uid="uid://b02xxwca4h31" path="res://scenes/player/states/movement/In_Menu.gd" id="12_fm80t"]
+[ext_resource type="Script" uid="uid://8adk86412iwr" path="res://scripts/components/Component_Manager.gd" id="13_gx1jg"]
+[ext_resource type="Script" uid="uid://chr7p01seflwc" path="res://scripts/components/Inventory_Component.gd" id="14_ugbui"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
 
@@ -33,12 +36,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-
-[node name="InventoryHBox" type="HBoxContainer" parent="PlayerGUI"]
-unique_name_in_owner = true
-layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="PlayerBody" type="CharacterBody3D" parent="."]
 unique_name_in_owner = true
@@ -64,9 +61,9 @@ shape = SubResource("ConvexPolygonShape3D_8afob")
 unique_name_in_owner = true
 script = ExtResource("4_lvxji")
 CONFIG = ExtResource("5_je7p5")
-INVENTORY = ExtResource("5_fm80t")
 
 [node name="MovementState" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
 script = ExtResource("3_gmlin")
 initial_state = NodePath("Walking")
 
@@ -82,6 +79,10 @@ state_height = 0.7
 script = ExtResource("6_75vfm")
 state_speed = 3.0
 state_height = 0.3
+
+[node name="In_Menu" type="Node" parent="MovementState"]
+script = ExtResource("12_fm80t")
+metadata/_custom_type_script = "uid://b02xxwca4h31"
 
 [node name="InteractingState" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_gmlin")
@@ -101,6 +102,15 @@ shape = SubResource("CylinderShape3D_h17s1")
 
 [node name="In_Inventory" type="Node" parent="InteractingState"]
 script = ExtResource("10_h17s1")
+
+[node name="Component_Manager" type="Node" parent="."]
+script = ExtResource("13_gx1jg")
+metadata/_custom_type_script = "uid://8adk86412iwr"
+
+[node name="Inventory_Component" type="Node" parent="Component_Manager"]
+script = ExtResource("14_ugbui")
+inventory = ExtResource("5_fm80t")
+metadata/_custom_type_script = "uid://chr7p01seflwc"
 
 [connection signal="body_entered" from="InteractingState/Neutral/InteractionArea" to="InteractingState/Neutral" method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="InteractingState/Neutral/InteractionArea" to="InteractingState/Neutral" method="_on_interaction_area_body_exited"]
