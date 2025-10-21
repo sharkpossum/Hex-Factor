@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name Player_Head
+
 @onready var player_body: CharacterBody3D = %PlayerBody
 @onready var player_camera: Camera3D = %PlayerCamera
 

@@ -5,7 +5,7 @@ class_name Player_In_Menu_State
 @onready var player_movement_state: State_Machine = %MovementState
 
 func Enter():
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	player_stats.CAN_MOVE = false
 	player_stats.CAN_LOOK = false
 	player_movement_state.override_state("in_menu")

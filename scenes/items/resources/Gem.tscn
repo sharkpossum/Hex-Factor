@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://boq0v0dgcd6kk"]
+[gd_scene load_steps=8 format=3 uid="uid://boq0v0dgcd6kk"]
 
 [ext_resource type="Script" uid="uid://co7jhh45ebovi" path="res://scenes/items/Item.gd" id="1_sgbi3"]
 [ext_resource type="Script" uid="uid://dc5hiugqxud7n" path="res://scripts/components/Collectible_Component.gd" id="2_0umgs"]
 [ext_resource type="Script" uid="uid://8adk86412iwr" path="res://scripts/components/Component_Manager.gd" id="2_g36qw"]
+[ext_resource type="Texture2D" uid="uid://d1i0khmv1ttw8" path="res://scenes/items/resources/emote_star.png" id="2_w5cq0"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sgbi3"]
 points = PackedVector3Array(-0.221359, 0.05, -0.0414722, 0.221351, 0.05, 0.0414722, 0.214418, 0.05, 0.0691204, -0.1474, -0.05, -0.191636, -0.0441949, -0.05, 0.235874, 0.235866, -0.05, -0.0441917, 0.0691587, 0.05, -0.214425, -0.0691232, 0.05, 0.214425, -0.221098, -0.05, 0.095818, 0.147346, -0.05, 0.191636, 0.0957664, -0.05, -0.221097, -0.0898806, 0.05, -0.207491, 0.0898729, 0.05, 0.207491, 0.179836, 0.05, -0.138284, -0.179801, 0.05, 0.138327, -0.228486, -0.05, -0.073699, -0.0441949, -0.05, -0.235874, -0.1474, -0.05, 0.191636, 0.22109, -0.05, 0.095818, -0.179801, 0.05, -0.138327, 0.191629, -0.05, -0.147352, 0.179836, 0.05, 0.138284, 0.0441871, -0.05, 0.235874, -0.221359, 0.05, 0.0414722, 0.214418, 0.05, -0.0691204, -0.235874, -0.05, 0.0441917, 0.0414677, 0.05, 0.221359, 0.138278, 0.05, -0.179843, -0.0414755, 0.05, -0.221359, 0.0441871, -0.05, -0.235874, -0.191591, -0.05, -0.147398, -0.138329, 0.05, 0.179843)
@@ -16,17 +17,17 @@ top_radius = 0.25
 bottom_radius = 0.25
 height = 0.1
 
-[node name="Gem" type="Node3D"]
+[node name="Gem" type="RigidBody3D"]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_sgbi3")
+ui_sprite = ExtResource("2_w5cq0")
+description = "Shine bright you crazy diamond"
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-collision_layer = 7
-collision_mask = 7
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_sgbi3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
 mesh = SubResource("CylinderMesh_sgbi3")
 skeleton = NodePath("../..")
 

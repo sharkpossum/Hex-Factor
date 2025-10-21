@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://df4cptti61gjf"]
+[gd_scene load_steps=19 format=3 uid="uid://df4cptti61gjf"]
 
 [ext_resource type="Script" uid="uid://c6ookd8igxpbd" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://d0gqgbr6j57ku" path="res://scenes/player/head.gd" id="2_0owmy"]
+[ext_resource type="Script" uid="uid://d2hchdfcm54xq" path="res://scenes/player/player_gui.gd" id="2_fcs02"]
 [ext_resource type="Script" uid="uid://g3oyeat67n0i" path="res://scripts/states/State_Machine.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://b7gd5fncajrhf" path="res://scripts/Player_Stats.gd" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://blm1er027g3ae" path="res://scenes/player/states/movement/Walking.gd" id="4_p47bc"]
@@ -36,6 +37,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("2_fcs02")
 
 [node name="PlayerBody" type="CharacterBody3D" parent="."]
 unique_name_in_owner = true

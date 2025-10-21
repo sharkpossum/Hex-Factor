@@ -7,10 +7,11 @@ func Enter():
 	super.Enter()
 	
 	menu = inventory_menu.instantiate()
+	
 	for c in player.get_meta("components"):
 		if c is Inventory_Component:
-			menu.set_data(c.get_inventory())
-	
+			menu.open_inventory(c, GUI)
+
 	GUI.add_child(menu)
 	
 func Exit():

@@ -10,7 +10,7 @@ var height_progress := 0.0
 var height_adjust_step := 0.0
 
 @onready var player_body: CharacterBody3D = %PlayerBody
-@onready var player_stats = %PlayerStats
+@onready var player_stats: Player_Stats = %PlayerStats
 @onready var player_head: Node3D = %Head
 @onready var player_camera = %PlayerCamera
 

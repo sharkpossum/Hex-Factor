@@ -3,7 +3,7 @@ extends Resource
 class_name Item_Inventory
 
 var slots: Dictionary[int, Item] = {}
-var capacity: int = 60
+var capacity: int = 24
 
 # Returns the item of the specified slot.
 func get_item(slot: int) -> Item:
@@ -12,10 +12,17 @@ func get_item(slot: int) -> Item:
 	else:
 		return null
 
+func is_full() -> bool:
+	if slots.size() >= capacity:
+		return true
+	return false
+
+func get_key(item: Item) -> int:
+	return slots.find_key(item)
+
 # Returns all items from the inventory.
 func get_items():
 	var items: Array[Item] = []
-	
 	for slot in slots:
 		items.append(slots[slot])
 	
@@ -37,3 +44,11 @@ func set_item(slot: int, item: Item):
 	else:
 		slots[slot] = item
 		return null
+		
+func delete_item(slot: int):
+	slots.erase(slot)
+	pass
+
+func swap_item(slotA: int, inventoryA: Item_Inventory, slotB: int, inventoryB: Item_Inventory):
+	var to_swap = inventoryB.set_item(slotB, inventoryA.get_item(slotA))
+	inventoryA.set_item(slotA, to_swap)

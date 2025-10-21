@@ -9,3 +9,9 @@ class_name Player_Stats
 @export var CAN_LOOK: bool = true
 
 @export var CONFIG: Player_Config;
+
+func GET_PLAYER_POSITION() -> Vector3:
+	return %PlayerBody.global_position
+
+func GET_PLAYER_HEAD() -> Player_Head:
+	return %Head
