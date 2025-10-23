@@ -32,8 +32,8 @@ func Update(_delta: float):
 				if c is Interactible_Component:
 					c.interact_with_source(player)
 		
-func _on_interaction_area_body_entered(body: RigidBody3D) -> void:
+func _on_interaction_area_body_entered(body: PhysicsBody3D) -> void:
 	interactibles.append(body)
 
-func _on_interaction_area_body_exited(body: RigidBody3D) -> void:
+func _on_interaction_area_body_exited(body: PhysicsBody3D) -> void:
 	interactibles.erase(body)

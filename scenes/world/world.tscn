@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://biicte2rtj84x"]
+[gd_scene load_steps=8 format=3 uid="uid://biicte2rtj84x"]
 
 [ext_resource type="PackedScene" uid="uid://bbl2c3uys5gai" path="res://scenes/world/white_halls/white_hall_floor.tscn" id="1_dphjl"]
 [ext_resource type="PackedScene" uid="uid://df4cptti61gjf" path="res://scenes/player/player.tscn" id="1_sl2e5"]
 [ext_resource type="PackedScene" uid="uid://boq0v0dgcd6kk" path="res://scenes/items/resources/Gem.tscn" id="3_1fp7r"]
+[ext_resource type="PackedScene" uid="uid://ddjkdsnktj31e" path="res://scenes/world/craftable/brewing_table/Cauldron_Table.tscn" id="4_6m72w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4rhad"]
 sky_top_color = Color(0.0449246, 0.481718, 0.688232, 1)
@@ -65,3 +66,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.79155, 1.27395, -0.0007324
 
 [node name="Omega4" parent="Items2" instance=ExtResource("3_1fp7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.94245, 1.27395, -0.000732422)
+
+[node name="Furniture" type="Node" parent="."]
+
+[node name="CauldronTable" parent="Furniture" instance=ExtResource("4_6m72w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.917127, -4.76837e-07, 2.4725)
