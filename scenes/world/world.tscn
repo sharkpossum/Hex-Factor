@@ -27,7 +27,7 @@ glow_enabled = true
 environment = SubResource("Environment_sl2e5")
 
 [node name="Player" parent="." instance=ExtResource("1_sl2e5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7993, 2.72609, 7.34618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7993, 0.88005, 4.46784)
 
 [node name="World" type="Node" parent="."]
 

@@ -4,7 +4,7 @@ class_name Player_Movement_State
 
 # State properties
 @export var state_speed = 5.0
-@export var state_height = 0.75
+@export var state_height = 1.40
 
 var height_progress := 0.0
 var height_adjust_step := 0.0
@@ -36,7 +36,7 @@ func handle_height_change(delta: float):
 	height_progress = lerp(player_stats.HEIGHT, state_height, delta * height_adjust_step)
 	
 	player_stats.HEIGHT = snapped(height_progress, 0.001)
-	player_head.position.y = player_stats.HEIGHT
+	player_head.position.y = player_stats.HEIGHT / 2
 
 func Move(delta):
 	if not player_body.is_on_floor():
