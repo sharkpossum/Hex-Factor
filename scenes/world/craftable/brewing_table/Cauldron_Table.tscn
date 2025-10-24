@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c4hw3gf4uwcuk" path="res://scripts/components/Health_Component.gd" id="3_dhmcb"]
 [ext_resource type="Script" uid="uid://crfdtlrr2fnnk" path="res://scripts/components/Pokeable_Component.gd" id="4_grx7y"]
 [ext_resource type="Script" uid="uid://cwmfqp2udhayg" path="res://scripts/components/Loot_Component.gd" id="5_ehjc6"]
-[ext_resource type="PackedScene" uid="uid://boq0v0dgcd6kk" path="res://scenes/items/resources/Gem.tscn" id="6_grx7y"]
+[ext_resource type="Resource" uid="uid://cjueca3cjkkct" path="res://scenes/world/craftable/brewing_table/Brewing_Table_Drops.tres" id="6_grx7y"]
 
 [sub_resource type="Animation" id="Animation_grx7y"]
 length = 0.001
@@ -80,5 +80,5 @@ metadata/_custom_type_script = "uid://crfdtlrr2fnnk"
 
 [node name="Loot_Component" type="Node" parent="Component_Manager"]
 script = ExtResource("5_ehjc6")
-item = ExtResource("6_grx7y")
+drop_table = ExtResource("6_grx7y")
 metadata/_custom_type_script = "uid://cwmfqp2udhayg"

@@ -23,4 +23,5 @@ func on_hit(damage: float, source: Node):
 	Poked.emit(damage, source)
 	
 	if animation_player:
+		animation_player.stop()
 		animation_player.play("on_hit")

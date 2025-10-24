@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Drop_Table" load_steps=2 format=3 uid="uid://cjueca3cjkkct"]
+
+[ext_resource type="Script" uid="uid://bi500yyfoeymj" path="res://scripts/resources/items/Drop_Table.gd" id="1_ie30q"]
+
+[resource]
+script = ExtResource("1_ie30q")
+guaranteed_drops = Array[String]([])
+has_random_drops = true
+drop_table = Dictionary[int, String]({
+10: "\"ruby\"",
+20: "\"gem\""
+})
+rolls = 2
+metadata/_custom_type_script = "uid://bi500yyfoeymj"
