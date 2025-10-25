@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b43obx8nca8fi"]
+
+[ext_resource type="PackedScene" uid="uid://dw4xks7peymbu" path="res://scenes/world/dorm_rooms/B2_spawn/B2_Dormroom_Static.glb" id="1_psy5h"]
+
+[node name="B2" type="Node3D"]
+
+[node name="B2_Dormroom_Static" parent="." instance=ExtResource("1_psy5h")]
