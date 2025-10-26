@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c608uaatt5mr6"]
+
+[ext_resource type="Script" uid="uid://ceokfxtwcui7v" path="res://scenes/ui/reticle_cursor.gd" id="1_fedlb"]
+
+[node name="ReticleContainer" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reticle" type="Control" parent="."]
+layout_mode = 2
+script = ExtResource("1_fedlb")

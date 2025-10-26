@@ -28,9 +28,8 @@ description = "Shine bright you crazy diamond"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_sgbi3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_sgbi3")
-skeleton = NodePath("../..")
 
 [node name="ComponentManager" type="Node" parent="."]
 script = ExtResource("3_ij7ij")
