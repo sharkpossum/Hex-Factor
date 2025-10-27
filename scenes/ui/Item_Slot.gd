@@ -9,10 +9,14 @@ var empty_slot_sprite: Texture2D = preload("res://scenes/ui/icon.svg")
 
 signal HoveringSlot
 
+var label_format = "%s (%s)"
+
 func update_slot():
 	item = source_inventory.get_item(assigned_slot)
 	if item:
-		%ItemLabel.text = item.item_name
+		var label_text = label_format % [item.item_name, item.item_amount]
+		
+		%ItemLabel.text = label_text
 		if item.ui_sprite:
 			%ItemSprite.texture = item.ui_sprite
 		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND

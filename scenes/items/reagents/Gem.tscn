@@ -24,6 +24,8 @@ script = ExtResource("1_sgbi3")
 ui_sprite = ExtResource("2_w5cq0")
 item_name = "Gem"
 description = "Shine bright you crazy diamond"
+item_id = "gem"
+item_amount = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_sgbi3")

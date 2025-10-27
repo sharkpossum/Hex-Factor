@@ -24,6 +24,8 @@ script = ExtResource("1_daplv")
 ui_sprite = ExtResource("2_7dwl7")
 item_name = "Ruby"
 description = "Shine bright you crazy diamond"
+item_id = "ruby"
+item_amount = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_sgbi3")

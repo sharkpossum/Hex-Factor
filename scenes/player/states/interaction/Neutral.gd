@@ -42,4 +42,5 @@ func Update(_delta: float):
 	
 	if Input.is_action_just_pressed("interact"):
 		if interaction_target_component:
+			interaction_target_component.unhighlight()
 			interaction_target_component.interact_with_source(player)
