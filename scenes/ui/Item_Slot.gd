@@ -13,6 +13,9 @@ var label_format = "%s (%s)"
 
 func update_slot():
 	item = source_inventory.get_item(assigned_slot)
+	set_item(item)
+
+func set_item(item: Item):
 	if item:
 		var label_text = label_format % [item.item_name, item.item_amount]
 		
@@ -24,6 +27,7 @@ func update_slot():
 		%ItemLabel.text = ""
 		%ItemSprite.texture = empty_slot_sprite
 		mouse_default_cursor_shape = Control.CURSOR_ARROW
+	pass
 
 func set_inventory(inventory: Item_Inventory):
 	source_inventory = inventory

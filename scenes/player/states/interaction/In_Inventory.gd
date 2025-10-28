@@ -21,4 +21,4 @@ func Exit():
 
 func Update(_delta: float):
 	if Input.is_action_just_pressed("inventory"):
-		Transitioned.emit(self, "neutral")
+		Transitioned.emit(self, "exploring")

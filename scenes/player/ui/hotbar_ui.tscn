@@ -1,12 +1,17 @@
-[gd_scene format=3 uid="uid://cqseil26u8ago"]
+[gd_scene load_steps=3 format=3 uid="uid://cqseil26u8ago"]
+
+[ext_resource type="Script" uid="uid://28t85rmqh4t5" path="res://scenes/player/ui/hotbar_ui.gd" id="1_hof02"]
+[ext_resource type="PackedScene" uid="uid://dr5qkjc1mid0g" path="res://scenes/ui/Item_Slot.tscn" id="2_r5gkv"]
 
 [node name="HotbarUI" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("1_hof02")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -16,7 +21,46 @@ offset_top = 10.0
 offset_right = 10.0
 offset_bottom = 10.0
 
+[node name="Hotbar_Slot_0" type="Panel" parent="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Hotbar_Slot_0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Hotbar_Slot_0/CenterContainer"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Item_Slot_0" parent="HBoxContainer/Hotbar_Slot_0" instance=ExtResource("2_r5gkv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+mouse_filter = 1
+
+[node name="Selector" type="ColorRect" parent="HBoxContainer/Hotbar_Slot_0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.392157)
+
 [node name="Hotbar_Slot_1" type="Panel" parent="HBoxContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
@@ -31,20 +75,20 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/Hotbar_Slot_1/CenterContainer"]
 layout_mode = 2
-text = "1"
+text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Selector" type="ColorRect" parent="HBoxContainer/Hotbar_Slot_1"]
-z_index = -5
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Item_Slot_1" parent="HBoxContainer/Hotbar_Slot_1" instance=ExtResource("2_r5gkv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+mouse_filter = 1
 
 [node name="Hotbar_Slot_2" type="Panel" parent="HBoxContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
@@ -59,11 +103,20 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/Hotbar_Slot_2/CenterContainer"]
 layout_mode = 2
-text = "2"
+text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Item_Slot_2" parent="HBoxContainer/Hotbar_Slot_2" instance=ExtResource("2_r5gkv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+mouse_filter = 1
+
 [node name="Hotbar_Slot_3" type="Panel" parent="HBoxContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
@@ -78,6 +131,14 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/Hotbar_Slot_3/CenterContainer"]
 layout_mode = 2
-text = "3"
+text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Item_Slot_3" parent="HBoxContainer/Hotbar_Slot_3" instance=ExtResource("2_r5gkv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+mouse_filter = 1

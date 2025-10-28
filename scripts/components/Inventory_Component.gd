@@ -6,3 +6,6 @@ class_name Inventory_Component
 
 func get_inventory() -> Item_Inventory:
 	return inventory
+
+func get_inventory_update_signal	() -> Signal:
+	return inventory.InventoryUpdated

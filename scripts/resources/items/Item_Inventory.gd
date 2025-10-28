@@ -5,6 +5,8 @@ class_name Item_Inventory
 var slots: Dictionary[int, Item] = {}
 var capacity: int = 24
 
+signal InventoryUpdated
+
 # Returns the item of the specified slot.
 func get_item(slot: int) -> Item:
 	if slots.has(slot):
@@ -44,6 +46,8 @@ func add_item(item: Item):
 							contained_item.item_amount = contained_item.stack_capacity
 						else:
 							contained_item.item_amount += item.item_amount
+							
+							InventoryUpdated.emit()
 							return 0
 			
 			else:
@@ -52,7 +56,11 @@ func add_item(item: Item):
 		
 		if empty_slot != -1:
 			slots[empty_slot] = item
+			
+			InventoryUpdated.emit()
 			return 0
+
+		InventoryUpdated.emit()
 		return item.item_amount
 		
 # Attempts to set an item. If the slot is taken, return the current item.
@@ -64,11 +72,14 @@ func set_item(slot: int, item: Item):
 	else:
 		slots[slot] = item
 		return null
+	InventoryUpdated.emit()
 		
 func delete_item(slot: int):
 	slots.erase(slot)
+	InventoryUpdated.emit()
 	pass
 
 func swap_item(slotA: int, inventoryA: Item_Inventory, slotB: int, inventoryB: Item_Inventory):
 	var to_swap = inventoryB.set_item(slotB, inventoryA.get_item(slotA))
 	inventoryA.set_item(slotA, to_swap)
+	InventoryUpdated.emit()

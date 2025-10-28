@@ -14,3 +14,5 @@ class_name Item
 @export var item_id: String = ""
 @export var is_stackable: bool = true
 @export var item_amount: int = 0
+
+@export_enum("Carrying", "Building") var item_function: String = "Carrying"

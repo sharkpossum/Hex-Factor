@@ -7,6 +7,7 @@ class_name Player
 signal State_Parent_Ready
 
 func _ready():
+	player_stats.player = self
 	emit_signal("State_Parent_Ready")
 	pass
 

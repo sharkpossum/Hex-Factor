@@ -21,8 +21,6 @@ var drag_size_offset: Vector2
 # Distance item is dropped from player head.
 var drop_distance: float = 2.0
 
-signal RedrawSlots
-
 func _physics_process(_delta: float) -> void:
 	if !is_holding && focused_slot:
 		if Input.is_action_just_pressed("select"):
@@ -51,7 +49,7 @@ func open_inventory(inventory_component: Inventory_Component, GUI: Player_GUI):
 		box.set_slot(i)
 		box.update_slot()
 		box.HoveringSlot.connect(on_focus_slot_change)
-		RedrawSlots.connect(box.update_slot)
+		inventory_component.get_inventory_update_signal().connect(box.update_slot)
 
 		%PlayerInventoryGrid.add_child(box)
 		
@@ -65,16 +63,12 @@ func hold_item(slot: int, inventory: Item_Inventory):
 	drag_icon.visible = true
 	is_holding = true
 	
-	RedrawSlots.emit()
-
 func drop_item_in_slot(hovered_slot: int, hovered_inventory: Item_Inventory):
 	if !hovered_inventory.get_item(hovered_slot):
 		hovered_inventory.set_item(hovered_slot, held_item_inventory.get_item(held_item_slot))
 		held_item_inventory.delete_item(held_item_slot)
 	else:
 		hovered_inventory.swap_item(held_item_slot, held_item_inventory, hovered_slot, hovered_inventory)
-	
-	RedrawSlots.emit()
 	
 	drag_icon.visible = false
 	is_holding = false
@@ -84,7 +78,6 @@ func drop_item():
 	item_spawn.pack(held_item_inventory.get_item(held_item_slot))
 	
 	held_item_inventory.delete_item(held_item_slot)
-	RedrawSlots.emit()
 	
 	var player: Player = inventory_component.get_component_owner()
 	var head = player.get_stats().GET_PLAYER_HEAD()

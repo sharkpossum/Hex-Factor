@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://cocnkjd2dqw2i" path="res://scenes/player/states/interaction/In_Inventory.gd" id="10_h17s1"]
 [ext_resource type="Script" uid="uid://b02xxwca4h31" path="res://scenes/player/states/movement/In_Menu.gd" id="12_fm80t"]
 [ext_resource type="Script" uid="uid://8adk86412iwr" path="res://scripts/components/Component_Manager.gd" id="13_gx1jg"]
-[ext_resource type="Script" uid="uid://bwyryc1isr0m5" path="res://scenes/player/states/interaction/Neutral.gd" id="14_kvlxm"]
+[ext_resource type="Script" uid="uid://dci8rdc84d813" path="res://scenes/player/states/interaction/Exploring.gd" id="14_kvlxm"]
 [ext_resource type="Script" uid="uid://chr7p01seflwc" path="res://scripts/components/Inventory_Component.gd" id="14_ugbui"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x7p2l"]
@@ -41,7 +41,6 @@ script = ExtResource("2_fcs02")
 [node name="HotbarUI" parent="PlayerGUI" instance=ExtResource("3_myrg7")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
 
 [node name="Reticle" parent="PlayerGUI" instance=ExtResource("4_kvlxm")]
 unique_name_in_owner = true
@@ -104,14 +103,13 @@ metadata/_custom_type_script = "uid://b02xxwca4h31"
 
 [node name="InteractingState" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_gmlin")
-initial_state = NodePath("Neutral")
+initial_state = NodePath("Exploring")
 
 [node name="In_Inventory" type="Node" parent="InteractingState"]
 script = ExtResource("10_h17s1")
 
-[node name="Neutral" type="Node" parent="InteractingState"]
+[node name="Exploring" type="Node" parent="InteractingState"]
 script = ExtResource("14_kvlxm")
-metadata/_custom_type_script = "uid://bwyryc1isr0m5"
 
 [node name="Component_Manager" type="Node" parent="."]
 script = ExtResource("13_gx1jg")
@@ -121,3 +119,5 @@ metadata/_custom_type_script = "uid://8adk86412iwr"
 script = ExtResource("14_ugbui")
 inventory = ExtResource("5_fm80t")
 metadata/_custom_type_script = "uid://chr7p01seflwc"
+
+[connection signal="ready" from="." to="PlayerGUI/HotbarUI" method="_on_player_ready"]
