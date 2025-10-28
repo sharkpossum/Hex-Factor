@@ -6,16 +6,10 @@ extends Player_Interaction_State
 var interaction_target: Node3D
 var interaction_target_component: Interactible_Component
 
-var recticle_scene = preload("res://scenes/ui/Reticle.tscn")
-var recticle: Control
-
 func Enter():
-	recticle = recticle_scene.instantiate()
-	GUI.add_child(recticle)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func Exit():
-	GUI.remove_child(recticle)
 	pass
 
 func Physics_Update(_delta: float):
